@@ -116,3 +116,101 @@ The chat history has been updated to include the latest changes and test results
 
 **GitHub Copilot:**
 The chat history has been updated to include the latest changes and test results for the Rock Paper Scissors Lizard Spock game.
+
+---
+
+**User:** Instead of wanting the user to input the actual option, rather show the user a number ordered list and let them select the option by providing a number (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The game now displays a numbered list of options and prompts the user to select by entering a number instead of typing the option name. Would you like to test this new input method?
+
+---
+
+**User:** Yes (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The updated game works as intended with the numbered input selection. You chose "scissors" by entering 3, the computer chose "paper", and you won!
+
+Let me know if you want to make any more changes or add features.
+
+---
+
+**User:** Now a user wants to be able to navigate the displayed options with keyboard arrows up and down. The user will select an option by hitting enter. The user can however still choose to simply enter a number. (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+To implement arrow key navigation and selection in the terminal, I will need to:
+
+- Display the options with a highlighted/selected index.
+- Listen for up/down arrow key presses to move the selection.
+- Allow Enter to select the highlighted option.
+- Still allow direct number input as a shortcut.
+
+This will require using `readline` in raw mode and handling keypress events.
+
+Would you like the selection to wrap around (e.g., pressing down on the last option goes to the first), or should it stop at the ends?
+
+---
+
+**User:** No wrap around (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+Arrow key navigation and Enter selection have been added with no wrap around. Number input is still supported. Would you like to test the new interactive selection?
+
+---
+
+**User:** Yes (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The interactive selection works! You can now use the up and down arrow keys to highlight your choice and press Enter to select, or simply type a number. The selection does not wrap around at the ends.
+
+Let me know if you want any further improvements or features!
+
+---
+
+**User:** Instead of quitting the game immediately, give the user an option to play again (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The game now asks the user if they want to play again after each round. If the user enters "y" or "yes", the game restarts; otherwise, it exits.
+
+Would you like to test this new feature?
+
+---
+
+**User:** Keep the existing comments. They are helpful to know which input it is (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The helpful comments for each input type (Ctrl+C, Enter, Up/Down arrows, number key) have been restored and clarified in the code. The logic and user experience remain unchanged.
+
+Let me know if you need any more improvements or features!
+
+---
+
+**User:** Update the prompt file (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The chat history has been updated to include all recent improvements, including arrow key navigation, number input, and the play again feature with helpful comments in the code.
+
+---
+
+**User:** Update the prompt md file (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The chat history has been updated to include all recent improvements, including arrow key navigation, number input, and the play again feature with helpful comments in the code.

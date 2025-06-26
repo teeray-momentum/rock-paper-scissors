@@ -34,16 +34,34 @@ function playGame() {
     output: process.stdout,
   });
 
-  rl.question('Choose rock, paper, scissors, lizard, or spock: ', (answer) => {
-    const playerChoice = answer.trim().toLowerCase();
-    if (!choices.includes(playerChoice)) {
-      console.log(
-        'Invalid choice. Please choose rock, paper, scissors, lizard, or spock.'
-      );
-      rl.close();
-      return;
-    }
+  let selected = 0;
+  let answered = false;
+
+  function renderOptions() {
+    process.stdout.write('\x1Bc');
+    console.log(
+      'Choose an option (use \u2191/\u2193 arrows, Enter to select, or type a number):'
+    );
+    choices.forEach((choice, idx) => {
+      if (idx === selected) {
+        console.log(
+          `> ${idx + 1}: ${choice.charAt(0).toUpperCase() + choice.slice(1)}`
+        );
+      } else {
+        console.log(
+          `  ${idx + 1}: ${choice.charAt(0).toUpperCase() + choice.slice(1)}`
+        );
+      }
+    });
+  }
+
+  function finishSelection(idx) {
+    answered = true;
+    process.stdin.setRawMode(false);
+    process.stdin.pause();
+    const playerChoice = choices[idx];
     const computerChoice = getComputerChoice();
+    console.log(`\nYou chose: ${playerChoice}`);
     console.log(`Computer chose: ${computerChoice}`);
     const winner = getWinner(playerChoice, computerChoice);
     if (winner === 'draw') {
@@ -53,7 +71,58 @@ function playGame() {
     } else {
       console.log('Computer wins!');
     }
-    rl.close();
+    askPlayAgain();
+  }
+
+  function askPlayAgain() {
+    rl.question('\nPlay again? (y/n): ', (answer) => {
+      const ans = answer.trim().toLowerCase();
+      if (ans === 'y' || ans === 'yes') {
+        selected = 0;
+        answered = false;
+        renderOptions();
+        process.stdin.setRawMode(true);
+        process.stdin.resume();
+      } else {
+        rl.close();
+      }
+    });
+  }
+
+  renderOptions();
+
+  process.stdin.setRawMode(true);
+  process.stdin.resume();
+  process.stdin.setEncoding('utf8');
+
+  process.stdin.on('data', (key) => {
+    if (answered) return;
+    const keyStr = key.toString();
+    if (keyStr === '\u0003') {
+      // Ctrl+C
+      process.exit();
+    } else if (keyStr === '\r' || keyStr === '\n') {
+      // Enter
+      finishSelection(selected);
+    } else if (keyStr === '\u001b[A') {
+      // Up arrow
+      if (selected > 0) {
+        selected--;
+        renderOptions();
+      }
+    } else if (keyStr === '\u001b[B') {
+      // Down arrow
+      if (selected < choices.length - 1) {
+        selected++;
+        renderOptions();
+      }
+    } else if (/^[1-9]$/.test(keyStr)) {
+      // Number key
+      const num = parseInt(keyStr, 10);
+      if (num >= 1 && num <= choices.length) {
+        finishSelection(num - 1);
+      }
+    }
   });
 }
 
