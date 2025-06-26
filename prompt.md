@@ -38,3 +38,81 @@ Let me know if you want to play again or add more features.
 
 **GitHub Copilot:**
 The file prompt.txt has been created with the full Copilot chat history, including your latest question and my response. Let me know if you need anything else!
+
+---
+
+**User:** I want to improve the game to add more options according to this file #fetch_webpage https://github.com/copilot-workshops/copilot-rock-paper-scissors/blob/main/.instructions/3.%20challenge%20exercises.md
+
+Analyse the provided md file and update the game to include the new options.
+
+Before you begin updating the game, ask me any clarifying questions you may have. Ask questions one at a time please. (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The challenge file mentions "Challenge #1 - Adding Lizard and Spock to the game."
+
+To clarify before proceeding:
+
+- Do you want to add just "Lizard" and "Spock" (making it "Rock, Paper, Scissors, Lizard, Spock"), or do you want to add even more options or custom moves?
+- Should I update the rules to match the standard "Rock, Paper, Scissors, Lizard, Spock" logic (as popularized by The Big Bang Theory)?
+
+Please confirm or specify any additional moves or custom rules you want!
+
+---
+
+**User:**
+
+- Yes I only want to add Lizard and Spock
+- Yes update the rules (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+Thank you for clarifying! To confirm before I update the code:
+
+Would you like the prompt and validation to now say:  
+"Choose rock, paper, scissors, lizard, or spock:"  
+and accept any of those five options (case-insensitive)?
+
+Let me know if you want the prompt phrased differently, or if you want to keep the input style as-is.
+
+---
+
+**User:** Yes (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The game has been updated to include "lizard" and "spock" with the correct rules and prompt. You can now play "Rock, Paper, Scissors, Lizard, Spock" in the terminal.
+
+Would you like to test it now or make further changes?
+
+---
+
+**User:** Test it now please (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The updated game was tested successfully. The prompt now accepts "rock, paper, scissors, lizard, or spock." In this test, you chose "paper," the computer chose "scissors," and the computer won.
+
+Let me know if you want to make any further changes or add more features!
+
+---
+
+**User:** Update the prompt txt file (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The chat history has been updated to include the latest changes and test results for the Rock Paper Scissors Lizard Spock game.
+
+---
+
+**User:** Update the prompt md file (See <attachments> above for file contents. You may not need to search or read the file again.)
+
+---
+
+**GitHub Copilot:**
+The chat history has been updated to include the latest changes and test results for the Rock Paper Scissors Lizard Spock game.

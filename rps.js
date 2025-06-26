@@ -3,23 +3,29 @@
 
 const readline = require('readline');
 
-const choices = ['rock', 'paper', 'scissors'];
+const choices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+
+// Rules for Rock Paper Scissors Lizard Spock
+// Returns 'player', 'computer', or 'draw'
+function getWinner(player, computer) {
+  if (player === computer) return 'draw';
+  // Map of what each choice beats
+  const beats = {
+    rock: ['scissors', 'lizard'],
+    paper: ['rock', 'spock'],
+    scissors: ['paper', 'lizard'],
+    lizard: ['spock', 'paper'],
+    spock: ['scissors', 'rock'],
+  };
+  if (beats[player] && beats[player].includes(computer)) {
+    return 'player';
+  }
+  return 'computer';
+}
 
 function getComputerChoice() {
   const idx = Math.floor(Math.random() * choices.length);
   return choices[idx];
-}
-
-function getWinner(player, computer) {
-  if (player === computer) return 'draw';
-  if (
-    (player === 'rock' && computer === 'scissors') ||
-    (player === 'paper' && computer === 'rock') ||
-    (player === 'scissors' && computer === 'paper')
-  ) {
-    return 'player';
-  }
-  return 'computer';
 }
 
 function playGame() {
@@ -28,10 +34,12 @@ function playGame() {
     output: process.stdout,
   });
 
-  rl.question('Choose rock, paper, or scissors: ', (answer) => {
+  rl.question('Choose rock, paper, scissors, lizard, or spock: ', (answer) => {
     const playerChoice = answer.trim().toLowerCase();
     if (!choices.includes(playerChoice)) {
-      console.log('Invalid choice. Please choose rock, paper, or scissors.');
+      console.log(
+        'Invalid choice. Please choose rock, paper, scissors, lizard, or spock.'
+      );
       rl.close();
       return;
     }
